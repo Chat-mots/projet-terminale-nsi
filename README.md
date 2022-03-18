@@ -24,6 +24,7 @@ Une déconnexion volontaire mets le joueur automatiquement à la dernière place
 ## extension du cahier des charges (idées potentielles)
 - génération de salles procéduralement, avec un paramètre de difficulté applicable à la salle.
 - ajout d'un "méchant/maitre de jeu", qui voit la salle à l'avance et place des obstacles sur la route, si personne ne gagne, il a les points de victoires.
-- réalisation d'un site présentant le projet, avec les classements affichés dessus, lien de téléchargement, etc.
+- réalisation d'un site présentant le projet, avec les classements affichés dessus, lien de téléchargement, ses statistiques, etc.
 - systeme de "code de connexion" pour rejoindre une partie.
-- systeme de skin
+- systeme de skin.
+- système de replay.
