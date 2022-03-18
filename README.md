@@ -12,7 +12,9 @@ A la fin de toutes les courses (nombre de courses défini par le joueur au débu
 Durant la course, il n'y a pas d'intéractions directes entre les joueurs. Une fois qu'un joueur a atteint la ligne d'arrivée, un timer se déclenche et tous les joueurs passe automatiquement à la course suivant à la fin du décompte (timer global au cas où personne n'arrive la course). Chaque course correspond à une salle. Une collision avec un mur ramène le joueur au départ.
 
 ### système de classement
-Avec les points de victoires remportés à la fin d'un match et le classement, un joueur gagne ou perd de l'ELO, cela représente le moyen de le classer : plus on a d'ELO, plus on est bien classé. Un jour avec beaucoup d'ELO gagnera peu et perdra beaucoup face à un joueur qui en a peu (les pertes et gains sont proportionnelles à l'ELO des joueurs).
+Les points de victoires sont attribués à la fin de chaque course en fonction de la place du joueur.
+
+Avec les points de victoires remportés à la fin d'une partie et le classement, un joueur gagne ou perd de l'ELO, cela représente le moyen de le classer : plus on a d'ELO, plus on est bien classé. Un joueur avec beaucoup d'ELO gagnera peu et perdra beaucoup face à un joueur qui en a peu (les pertes et gains sont proportionnelles à l'ELO des joueurs).
 
 ## extension du cahier des charges (idées potentielles)
 - génération de salles procéduralement, avec un paramètre de difficulté applicable à la salle.
