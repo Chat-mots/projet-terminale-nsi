@@ -2,7 +2,7 @@
 projet de fin d'année de Terminale de Léandre Meunier-Criquet, Victor Jean, Noah Bréhin, Pier Boennec et Ethan Brehin.
 
 ## cahier des charges
-Crée un jeu de course dans un labyrinthe en multijoueurs, généré avec un ordre de salles aléatoires. Où le personnage est contrôlé à la souris.
+Crée un jeu de course dans un labyrinthe en multijoueur, en temps réel, généré avec un ordre de salles aléatoires. Où le personnage est contrôlé à la souris. Un tableau de scores doit être consultable par les joueurs.
 
 ### règles du jeu
 Pour gagner, il faut être le premier à toucher la ligne d'arrivée. Les perdants sont les derniers arrivés.
