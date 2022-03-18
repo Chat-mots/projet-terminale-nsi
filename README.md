@@ -2,7 +2,7 @@
 projet de fin d'année de Terminale de Léandre Meunier-Criquet, Victor Jean, Noah Bréhin, Pier Boennec et Ethan Brehin.
 
 ## cahier des charges
-Crée un jeu de course dans un labyrinthe en multijoueur, en temps réel, généré avec un ordre de salles aléatoires (salles créés à la main, ordre d'apparition aléatoire) au format 4:3. Où le personnage est contrôlé uniquement à la souris. Un tableau de scores mais aussi un classement global entre les différentes parties doit être consultable par les joueurs. Le jeu devra se lancer facilement (à l'aide d'un script bat par exemple). Il y aura une application client et une application serveur : l'app client sert de jeu (avec menu, interface, etc.), l'app serveur sauvegarde les points, le rang, et gère le multijoueur.
+Crée un jeu de course dans un labyrinthe en multijoueur, en temps réel, généré avec un ordre de salles aléatoires (salles créés à la main, ordre d'apparition aléatoire) au format 4:3. Le jeu au démaragge se lance en plein écran. Où le personnage est contrôlé uniquement à la souris. Un tableau de scores mais aussi un classement global entre les différentes parties doit être consultable par les joueurs. Le jeu devra se lancer facilement (à l'aide d'un script bat par exemple). Il y aura une application client et une application serveur : l'app client sert de jeu (avec menu, interface, etc.), l'app serveur sauvegarde les points, le rang, et gère le multijoueur.
 
 ### règles du jeu
 Pour gagner, il faut être le premier à toucher la ligne d'arrivée. Les perdants sont les derniers arrivés.
