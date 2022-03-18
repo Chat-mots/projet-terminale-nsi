@@ -21,10 +21,14 @@ Avec les points de victoires remportés à la fin d'une partie et le classement,
 
 Une déconnexion volontaire mets le joueur automatiquement à la dernière place. Cependant s'il se reconnecte la partie reprend pour lui normalement après les salles qu'il a manqué.
 
+### Site web
+Un site web du jeu devra être réalisé, permettant de consulter la base de données des joueurs et où sera présent un lien de téléchargement.
+Des stastitiques "générales" (temps moyen, nombre de murs pris...) et un classement par ELO devront être consultables.
+L'accueil du site sera une présentation (images, règles...)
+
 ## extension du cahier des charges (idées potentielles)
 - génération de salles procéduralement, avec un paramètre de difficulté applicable à la salle.
 - ajout d'un "méchant/maitre de jeu", qui voit la salle à l'avance et place des obstacles sur la route, si personne ne gagne, il a les points de victoires.
-- réalisation d'un site présentant le projet, avec les classements affichés dessus, lien de téléchargement, ses statistiques, etc.
 - systeme de "code de connexion" pour rejoindre une partie.
 - systeme de skin.
 - système de replay.
