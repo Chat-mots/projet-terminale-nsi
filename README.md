@@ -16,6 +16,9 @@ Les points de victoires sont attribués à la fin de chaque course en fonction d
 
 Avec les points de victoires remportés à la fin d'une partie et le classement, un joueur gagne ou perd de l'ELO, cela représente le moyen de le classer : plus on a d'ELO, plus on est bien classé. Un joueur avec beaucoup d'ELO gagnera peu et perdra beaucoup face à un joueur qui en a peu (les pertes et gains sont proportionnelles à l'ELO des joueurs).
 
+### ce qu'est une salle :
+Une salle est l'élément principale d'une partie. Chaque partie a un nombre de salles définie par l'un des joueurs. Une salle prend l'écran en format 4:3. Elle est composé d'obstacles et possède une forme de chemin.
+
 ## extension du cahier des charges (idées potentielles)
 - génération de salles procéduralement, avec un paramètre de difficulté applicable à la salle.
 - ajout d'un "méchant/maitre de jeu", qui voit la course à l'avance et place des obstacles sur la route, si personne ne gagne, il a les points de victoires.
