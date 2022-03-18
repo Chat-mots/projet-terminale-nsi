@@ -9,7 +9,7 @@ Pour gagner, il faut être le premier à toucher la ligne d'arrivée. Les perdan
 Les points de victoires sont donnés par ordre d'arrivé (le premier gagne le plus de points, et les points diminue avec le rang de chaque participant).
 A la fin de toutes les courses (nombre de courses défini par l'hôte de la partie au début de la partie), celui avec le plus de points de victoires remporte la partie.
 
-Durant la course, il n'y a pas d'intéractions directes entre les joueurs. Une fois qu'un joueur a atteint la ligne d'arrivée, un timer se déclenche et tous les joueurs passe automatiquement à la course suivant à la fin du décompte (timer global au cas où personne n'arrive la course). Chaque course correspond à une salle. Une collision avec un mur ramène le joueur au départ.
+Durant la course, il n'y a pas d'intéractions directes entre les joueurs. Une fois qu'un joueur a atteint la ligne d'arrivée, un timer se déclenche et tous les autres joueurs passe automatiquement à la course suivant à la fin du timer, afin d'éviter un bloquage où unn joueur n'arriverait pas à finir la course. Chaque course correspond à une salle. Une collision avec un mur ramène le joueur au départ.
 
 ### système de classement
 Les points de victoires sont attribués à la fin de chaque course en fonction de la place du joueur. Des badges sont attribués en fonction de ce qu'il se passe durant la partie et de son classement ELO(ex: meilleur joueur, pire joueur, etc.).
