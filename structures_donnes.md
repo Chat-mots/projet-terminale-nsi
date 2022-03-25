@@ -14,6 +14,8 @@ On notera ici les différentes structures de données que chaque agent utilisera
 - Echange en TCP avec un serveur **multithread**
 - <br/> Ordre des phases : **connexion** -> **init** -> **jeu** 
 - le maximum de calculs se fera sur la machine
+- **Tuple (x;y) d'entiers** correspondant à la résolution du client (joueur), qu'on mettra à l'échelle 4:3 pour nos affichages
+- **2880 x 2160** sera la "résolution de calcul" utilisé par le serveur (résolution 4K mis au format 4:3)
 
 ### **A la phase de connexion :**
 - ID de joueur sous la forme d'un **nombre à 6
@@ -33,10 +35,43 @@ On aurait donc j1 = 00000001, j2 = 00000010 etc... jusqu'à j8 = 10000000. Ce ra
 - Une salle est représenté par un tuple (**id_salle** qui est un nombre à deux chiffres, **id_course** qui est un nombre à deux chiffres définissant si une salle est un morceau d'une course plus grande, **un str** qui est le fichier texte contenant les infos de la salle (les murs, les obstacles, point de départ et d'arrivée...))
 - Une liste contenant n tuples tel que définit plus tôt, où n est le nombre de courses définit par l'hôte
 - Le repère sera définie par un **tuple (x:y)**, qui correspond à l'origine, qui se situera dans un pixel en bas à gauche de l'écran.
-- 
+
 
 ### **A la phase de jeu :**
-- Position de tous les joueurs donné par un **couple (x;y) d'entiers**. Il faudra mettre un léger time out de manière à ce que ça gêne ni l'oeil du joueur, ni le serveur, pour éviter des envois de positions inutiles (dans le cas où un joueur bougerait sa souris dans tous les sens). Pour le time out, un **timer** performant sera nécessaire. 
+- Position de tous les joueurs donné par un **couple (x;y) d'entiers**. Il faudra mettre un léger time out de manière à ce que ça gêne ni l'oeil du joueur, ni le serveur, pour éviter des envois de positions trop nombreuses (dans le cas où un joueur bougerait sa souris dans tous les sens). Pour le time out, un **timer** performant sera nécessaire. 
 <br/>**En mode permanent (quand la partie est en cours)**
-- Le serveur envoie au client un vecteur avec des coordonnées **de départ et d'arrivée**
 - Réinitialisation de la position en cas de collision : si la position d'un joueur n'est pas dans des coordonnées jouables, alors on réinitialise sa position.
+
+### **Fichier de salle :**
+- Un fichier JSON
+```JSON
+{
+    "depart" : [(x,y),(x,y)],
+    "arrivee": [(x,y),(x,y)],
+    "murs": [
+        {
+            "type" : "murs verticaux",
+            "mur1" : [(x,y),(x,y)]
+        },
+        {
+            "type" : "murs horizontaux",
+            "mur1" : "etc..."
+
+        }
+    ],
+    "obstacles" : [
+        {
+            "type" : "obstacle type 1",
+            "mouvement": "etc...",
+            "position" : "etc"
+        },
+        {
+            "type" : "etc...."
+        }
+    ]
+}
+```
+- où départ et arrivée sont des carrés définis par leur diagonale allant du point représenté par le tuple 1 au point du tuple 2
+- les murs des segments avec un point de départ et d'arrivée
+- les obstacles avec des mouvements (rotations, mouvements...) et leur position
+
