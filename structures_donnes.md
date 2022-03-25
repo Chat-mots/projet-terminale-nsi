@@ -13,6 +13,7 @@ On notera ici les différentes structures de données que chaque agent utilisera
 ## Structure *S-C* :
 - Echange en TCP avec un serveur **multithread**
 - <br/> Ordre des phases : **connexion** -> **init** -> **jeu** 
+- le maximum de calculs se fera sur la machine
 
 ### **A la phase de connexion :**
 - ID de joueur sous la forme d'un **nombre à 6
@@ -38,3 +39,4 @@ On aurait donc j1 = 00000001, j2 = 00000010 etc... jusqu'à j8 = 10000000. Ce ra
 - Position de tous les joueurs donné par un **couple (x;y) d'entiers**. Il faudra mettre un léger time out de manière à ce que ça gêne ni l'oeil du joueur, ni le serveur, pour éviter des envois de positions inutiles (dans le cas où un joueur bougerait sa souris dans tous les sens). Pour le time out, un **timer** performant sera nécessaire. 
 <br/>**En mode permanent (quand la partie est en cours)**
 - Le serveur envoie au client un vecteur avec des coordonnées **de départ et d'arrivée**
+- Réinitialisation de la position en cas de collision : si la position d'un joueur n'est pas dans des coordonnées jouables, alors on réinitialise sa position.
