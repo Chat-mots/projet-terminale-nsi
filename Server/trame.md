@@ -8,8 +8,8 @@ A chaque lettre correspond une trame, qui signifie à quoi correspond la donnée
 - **EPC** : Erreur : la partie est complète (bool)
 - **EPI** : Erreur: partie inexistante (bool)
 - **SCR** : Score
-- **POS** : Tuple de position
-- **VIV** : Le joueur est vivant (bool)
+- **POS** : Tableau de position de tous les joueurs
+- **EDM** : Etat des morts (le nombre binaire qui donne les morts)
 - **IDS** : Id de salle
 - **IDC** : Id de course
 - **NBC** : Nombre de courses

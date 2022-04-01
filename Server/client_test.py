@@ -7,11 +7,11 @@ socket_client.connect(('localhost',2022))
 print("connection")
 
 try:
-    message = bytes("bonjour")
+    message = bytes("bonjour", "utf-8")
     print("sending : ", message)
     socket_client.sendall(message)
 
-    data = socket_client.recv(16)
+    data = socket_client.recv(1)
     # amount_received += amount_expected
     print("recu", data)
 

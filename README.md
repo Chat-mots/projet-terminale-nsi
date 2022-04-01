@@ -34,3 +34,4 @@ L'accueil du site sera une présentation (images, règles...) du jeu.
 - systeme de "code de connexion" pour rejoindre une partie.
 - systeme de skin.
 - système de replay.
+- Redémarrer tout seul le serveur en cas de crash

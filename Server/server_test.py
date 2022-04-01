@@ -1,3 +1,4 @@
+from distutils.log import FATAL
 import imp
 
 
@@ -17,15 +18,21 @@ while True:
     try:
         print("connection depuis", client_address)
         connected = True
+        trame_recu = False
         while connected:
-            data = connection.recv(16)
+            if trame_recu is False:
+                data = connection.recv(3)
+                trame_recu = True
+            else :
+                data = connection.recv(8)
             if data:
                 print("recu : ", data)
-                print("renvoie")
-                connection.sendall(data)
+                # print("renvoie")
+                # connection.sendall(data)
             else:
                 print("plus de données de : ", client_address)
                 connected = False
+            
     
     finally:
         connection.close()
