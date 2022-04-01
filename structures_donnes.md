@@ -19,7 +19,7 @@ On notera ici les différentes structures de données que chaque agent utilisera
 
 ### **A la phase de connexion :**
 - ID de joueur sous la forme d'un **nombre à 6
- chiffres (entre 0 et 999999, auto-incrementé)**
+ chiffres (entre 100000 et 999999, auto-incrementé)**
 - ID de salle (room) sous la forme d'un **string de 4 majuscules (de l'alphabet anglosaxon, c'est-à-dire les 26 lettres sans accent)**
 - L'ID de joueur s'abonnera à un ID de room : le serveur connaitra pour chaque room **L'IP**, qui est une **instance d'une classe prévue ppur les ip** et **l'ID** de chaque joueur dans la room, plus une valeur **booléenne** qui dit si le joueur est l'hôte ou non. Quand il reçoit une donnée d'un client, il regarde parmi ses rooms où il retrouve l'ip et l'id de ce client. Il comprendra alors où il doit envoyer la donnée. La table contiendra également une autre variable **booléenne**, **vraie** au départ, qui correspond au fait que le joueur est toujours connecté. Dans le cas d'une déconnection, la variable passe **fausse**, et redevient **vraie** si le joueur arrive à se reconnecter.
 - Il y aura toujours n rooms + 1 d'ouvertes (il y aura toujours une room vide pour permettre la création d'une nouvelle partie).
