@@ -7,7 +7,7 @@ socket_client.connect(('localhost',2022))
 print("connection")
 
 try:
-    message = bytes("bonjour", "utf-8")
+    message = "bonjour"
     print("sending : ", message)
     socket_client.sendall(message)
 
