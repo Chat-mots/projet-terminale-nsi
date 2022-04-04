@@ -1,3 +1,5 @@
+Le moteur de jeu utilisé pour ce projet sera pygame.
+Il y aura aussi un compteur de morts dans les stats personnelles du joueur dans la partie et sur son compte.
 Un timer déclenche la vérification de colision
 Faire un micro ordonanceur.
 Donnner une forte priorité (au sens systéme du terme) au process
