@@ -12,7 +12,7 @@ from matplotlib.pyplot import close
 host = '192.168.43.242'
 port = 4000
 
-socket_server = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+socket_server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 socket_server.bind((host, port))
 
 print("Server started")
@@ -23,7 +23,7 @@ while True:
     print("Data : ", data)
     data = data.upper()
     print("Sending :", data)
-    socket_server.sendto(data.encode('utf-8', addr))
+    socket_server.sendall(data.encode('utf-8'))
 
 
 
