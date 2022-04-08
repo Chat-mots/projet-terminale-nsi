@@ -3,7 +3,7 @@ import struct
 import sys
 
 multicast_group = '224.3.29.71'
-server_address = ('192.168.43.242', 10455)
+server_address = ('192.168.43.242', 10000)
 
 # Create the socket
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
