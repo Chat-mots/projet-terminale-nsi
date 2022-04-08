@@ -48,5 +48,16 @@ def ajoutermort(nbrmort, id):
 
     mydb.commit()
 
+def ajoutertemps_de_jeu(id, temps):
+    # on récupère le temps de jeu précedent
+    id_sp = (id,)
+    sqlcall = "SELECT `temps_de_jeu` FROM `statistiques` WHERE `ID` = %s;"
+    mycursor.execute(sqlcall, id_sp)
+    temps_prec = str(mycursor.fetchall())
+    temps_prec = temps_prec[2:]
+    temps_prec = temps_prec
+    temps_prec = temps_prec[:1]
+    temps += int(temps_prec)
+    print(temps)
 
-ajoutermort(33, 100011)
+# ajoutertemps_de_jeu(100000, 5)
