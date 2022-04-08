@@ -9,15 +9,30 @@ On a une classe `Obstacle`.
 Methodes:
   - `colision(x, y)` prend les coordonées d'un joueur et vérifie si un joueur est en colision avec un objet.
   - `affichage()` affiche un objet.
-  - 
+
+Une classe `Joueur`:
+
+- Attributs:
+  + `est_mort`->True ou False
+  + `coordonnée`->couple de réels(x,y)
+  + `nombre_de_morts`->entier
+  + `temps_partie`->temps joué par le joueur
+  + `Id_joueur`->entier à 6 chiffres pour différencier les joueurs
+  + `ELO_joueur`->entier
+
+- Méthodes:
+  +  `__init__(self,Id)`
+  + `set_est_mort(self,valeur)`->changer attribut `est_mort` par True or False
+  + `set_nombre_de_morts(self,valeur)`-> changer attribut `nombre_de_morts` par un entier
+  + ``
 
 # Micro Ordonanceur
 File d'appels de fonctions
 ## Thread :
  - Le timeur (el ordonanceur):
-   + Affichage des obstables
-   + Verification de colision
-   + Envois de données au server
+ - Affichage des obstables
+ - Verification de colision
+ - Envois de données au server
 
 ## NOUVEAU
 
