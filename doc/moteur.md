@@ -14,7 +14,7 @@ Une classe `Joueur`:
 
 - Attributs:
   + `est_mort`->True ou False
-  + `coordonnée`->couple de réels(x,y)
+  + `coordonnee`->couple de réels(x,y)
   + `nombre_de_morts`->entier
   + `temps_partie`->temps joué par le joueur
   + `Id_joueur`->entier à 6 chiffres pour différencier les joueurs
