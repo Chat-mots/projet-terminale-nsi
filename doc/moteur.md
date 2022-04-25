@@ -16,7 +16,7 @@ Une classe `Joueur`:
   + `est_mort`->True ou False
   + `coordonnee`->couple de réels(x,y)
   + `nombre_de_morts`->entier
-  + `temps_partie`->temps joué par le joueur
+  + `temps_arrive`->temps joué par le joueur
   + `Id_joueur`->entier à 6 chiffres pour différencier les joueurs
   + `ELO_joueur`->entier
 
@@ -24,7 +24,11 @@ Une classe `Joueur`:
   +  `__init__(self,Id)`
   + `set_est_mort(self,valeur)`->changer attribut `est_mort` par True or False
   + `set_nombre_de_morts(self,valeur)`-> changer attribut `nombre_de_morts` par un entier
-  + ``
+
+Une classe course:
+
+- Attributs:
+  +`salle`
 
 # Micro Ordonanceur
 File d'appels de fonctions
