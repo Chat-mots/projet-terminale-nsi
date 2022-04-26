@@ -15,7 +15,7 @@ def creerjoueur(pseudo):
 
     ajoute un joueur dans la bdd, lui crée un `id` et tout ce qui va avec.
 
-    :param int pseudo: pseudo du joueur
+    :param str pseudo: pseudo du joueur
     :return: None
     """
     pseudo = (pseudo,)
@@ -36,7 +36,7 @@ def ajoutermort(nbrmort, id):
     """ajoute le nombre de morts de la partie précedente au joueur
 
 
-    :param nbrmort: entier >= 0
+    :param int nbrmort: entier >= 0
     :param id: id du joueur (entier à 6 chiffres)
     :return: None
     """
