@@ -29,6 +29,16 @@ Une classe course:
 
 - Attributs:
   +`salle`
+  
+Une classe salle:
+
+-Attributs:
+  +`liste_obstacles`-> liste d'obstacles
+  
+  
+-Méthodes:
+  +`__init__(self,fichier)`->prend commme argument le "path" du fichier qui permet de créer la salle
+
 
 # Micro Ordonanceur
 File d'appels de fonctions
