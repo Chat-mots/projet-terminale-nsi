@@ -28,7 +28,8 @@ Une classe `Joueur`:
 Une classe course:
 
 - Attributs:
-  +`salle`
+  +`salles`->liste de plusieurs instances de la classe salle
+  +
   
 Une classe salle:
 
