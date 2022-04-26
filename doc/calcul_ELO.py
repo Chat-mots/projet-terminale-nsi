@@ -1,8 +1,19 @@
 def rapport_classement(index):
+    '''
+    fonction renvoyant une valeure allant de 100 à -100 suivant le classement du joueur.
+    :param index: entier appatrtenant à [0;7]. Si l'entier est 0, le joueur est premier. Si l'entier est 7, le joueur est 8e.
+    :return: valeur: valeur de base à additionner au joueur, avant l'application du coef par rapport à l'Elo moyen de la partie.
+    '''
     points = 100- (200/7)*index
     return points
 
-def rapport_moyenne_ELO(resultats,index):
+def rapport_moyenne_elo(resultats,index):
+    '''
+    fonction renvoyant le coefficient à appliquer à la valeur d'Elo à additionner pour un joueur donné.
+    :param liste_elo_joueur: liste de l'Elo de chaque joueur, triés par le classement de chaque joueur.
+    :param index_joueur: l'index du joueur représentatif de son classement, index étant un entier appatrtenant à [0;7]. Si l'entier est 0, le joueur est premier. Si l'entier est 7, le joueur est 8e.
+    :return: coef: le coefficient à appliquer à la valeur d'Elo à additionner pour un joueur donné.
+    '''
     somme_pts = 0
     taille_resultats = len(resultats)
     moyenne = 0
@@ -51,7 +62,7 @@ def coef_perte(moyenne):
         coef = 0.1
     return coef
   
-def calcul_ELO(resultats,index):
+def calcul_elo(resultats,index):
     '''
     fonction qui calcule l'ELO d'un joueur en fonction de son classement et du nombre de points des autres joueurs.
     -------------------------------
