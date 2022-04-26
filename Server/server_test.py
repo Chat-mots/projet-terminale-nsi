@@ -1,41 +1,30 @@
+from audioop import add
 from distutils.log import FATAL
+from http import server
 import imp
 
 
 import socket
 import sys
 
-socket_ecoute = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+from matplotlib.pyplot import close
 
-socket_ecoute.bind(('localhost',2022))
+host = '192.168.43.242'
+port = 4000
 
-socket_ecoute.listen(1)
+socket_server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+socket_server.bind((host, port))
 
+print("Server started")
 while True:
-    print("waiting for a connection")
-    connection, client_address = socket_ecoute.accept()
+    data, addr = socket_server.recvfrom(1024)
+    data = data.decode('utf-8')
+    print("Message from : ", addr)
+    print("Data : ", data)
+    data = data.upper()
+    print("Sending :", data)
+    socket_server.sendall(data.encode('utf-8'))
 
-    try:
-        print("connection depuis", client_address)
-        connected = True
-        trame_recu = False
-        while connected:
-            if trame_recu is False:
-                data = connection.recv(3)
-                trame_recu = True
-            else :
-                data = connection.recv(8)
-            if data:
-                print("recu : ", data)
-                # print("renvoie")
-                # connection.sendall(data)
-            else:
-                print("plus de données de : ", client_address)
-                connected = False
-            
-    
-    finally:
-        connection.close()
 
 
 
