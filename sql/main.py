@@ -105,12 +105,12 @@ def modifierelo(idjoueur, elo):
     elo += eloprec
 
     # si le nouvel elo devient inférieur à 0, on le remets à 0
-    if eloprec + elo < 0:
-        print("inférieur à 0")
+    if elo < 0:
         id_tuple = (idjoueur,)
         sqlbas = "UPDATE `base` SET `ELO` = '0' WHERE `base`.`ID` = %s"
         mycursor.execute(sqlbas, id_tuple)
         mydb.commit()
+        return "inférieur à 0"
 
     # on ajoute le nouvel elo
     valeurs = (elo, idjoueur)
@@ -200,7 +200,7 @@ def serievictoire(idjoueur, resultat):
         mycursor.execute(sqladd, valeurs)
         mydb.commit()
         # on vérifie si c'est un nouveau record
-        if serie_de_victoire+1 > record:
+        if serie_de_victoire + 1 > record:
             sqlnouveaurecord = \
                 "UPDATE `statistiques` SET `plus_grande_serie_de_victoire` = '%s' WHERE `statistiques`.`ID` = %s;"
             mycursor.execute(sqlnouveaurecord, valeurs)
@@ -211,3 +211,21 @@ def serievictoire(idjoueur, resultat):
         sqladd = "UPDATE `statistiques` SET `serie_de_victoire_actuelle` = '%s' WHERE `statistiques`.`ID` = %s;"
         mycursor.execute(sqladd, valeurs)
         mydb.commit()
+
+
+def getstats(idjoueur, cherche):
+    """cherche dans `statistiques` une valeur
+
+    Dans la table `statistiques`, getstats va chercher
+    dans la colonne "cherche" la valeur pour le joueur d'id `idjoueur`.
+
+    :param int idjoueur: entier à 6 chiffres
+    :param str cherche: nom de la colonne dans la table `statistiques` dans laquelle on effetue la recherche
+    :return:
+    """
+    sqltest = "SELECT " + cherche + " FROM `statistiques` WHERE `ID` = " + str(idjoueur)
+    mycursor.execute(sqltest)
+    retour = mycursor.fetchone()
+    retour = retour[0]
+
+    return retour
