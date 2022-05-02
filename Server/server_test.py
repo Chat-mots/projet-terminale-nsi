@@ -1,32 +1,21 @@
-from audioop import add
-from distutils.log import FATAL
-from http import server
-import imp
-
 
 import socket
 import sys
 
-from matplotlib.pyplot import close
-
-host = '192.168.43.242'
+host = '10.42.0.34'
 port = 4000
 
 socket_server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 socket_server.bind((host, port))
-
 print("Server started")
+
+socket_server.listen(5)
+socket_client, address = socket_server.accept()
 while True:
-    data, addr = socket_server.recvfrom(1024)
-    data = data.decode('utf-8')
-    print("Message from : ", addr)
-    print("Data : ", data)
-    data = data.upper()
-    print("Sending :", data)
-    socket_server.sendall(data.encode('utf-8'))
-
-
-
-
-    
-
+        data = socket_client.recv(1024)
+        data = data.decode('utf-8')
+        print("Message from : ", address)
+        print("Data : ", data)
+        data = data.upper()
+        print("Sending :", data)
+        socket_client.send(data.encode('utf-8'))

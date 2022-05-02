@@ -4,6 +4,8 @@ import random
 import ctypes
 
 from matplotlib.pyplot import table
+
+
 class Encodeur:
     """
     Classe encodeur, dont une instance sera possédée par chaque client.
@@ -21,12 +23,11 @@ class Encodeur:
     Il existera ensuite une fonction d'encodage pour chaque trame (cf : trame.md) qui renverront bytes:message
     """
 
-    def __init__(self, trame, valeur):
+    def __init__(self):
         self.trame = None
         self.valeur = None
         self.message = None
         self.format = None
-
 
     def encode(self, trame, valeur):
         self.valeur = valeur
@@ -36,16 +37,15 @@ class Encodeur:
             self.IDJ()
         return self.message
 
-
     def IDJ(self):
         """ Encodeur pour la trame Id de joueur
         """
         self.format = 'si'
 
-        self.data = struct.pack(self.format, self.trame, self.valeur)
+        data = struct.pack(self.format, bytes(self.format, 'utf-8'), self.valeur)
 
-        self.message = self.format.encode("utf-8")+self.data
-
+        trame = bytes(self.trame, 'utf-8')
+        self.message = trame + data
 
 
 if __name__ == "__main__":
@@ -55,3 +55,5 @@ if __name__ == "__main__":
     print(sys.getsizeof(nombre_en_str))
     print(sys.getsizeof(nombre_avec_struct))
     # tableau_direct = struct.pack('%si' %len(tableau), *tableau)
+    e = Encodeur()
+    print(e.encode('IDJ', 5))
