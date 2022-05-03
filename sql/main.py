@@ -229,3 +229,14 @@ def getstats(idjoueur, cherche):
     retour = retour[0]
 
     return retour
+
+
+def getlastcreatedid():
+    sql = 'SELECT `ID` FROM `base` where `ID` = last_insert_id();'
+    mycursor.execute(sql)
+    retour = mycursor.fetchone()
+    return retour[0]
+
+
+if __name__ == '__main__':
+    print("hi")
