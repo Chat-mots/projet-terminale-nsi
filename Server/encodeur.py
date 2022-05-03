@@ -16,6 +16,8 @@ class Encodeur:
     X:valeur = la dernière valeur encodée par l'encodeur
     bytes:message = le dernier message créé par l'encodeur
     str:format = Le dernier format utilisé par struct
+    bool:message_multicast  = Si le prochain message créée doit être multicasté, ce qui est le considéré comme étant le
+    cas de base
     ---------------
     Méthodes :
     ---------------
@@ -28,21 +30,26 @@ class Encodeur:
         self.valeur = None
         self.message = None
         self.format = None
+        self.message_multicast = True
 
     def encode(self, trame, valeur):
         self.valeur = valeur
         self.trame = trame
+        self.message_multicast = True
 
         if self.trame == 'IDJ':
             self.IDJ()
-        return self.message
+        if self.message_multicast == True:
 
+            return bytes("MC", 'utf-8') + self.message
+        else:
+            return bytes("MV", 'utf-8') + self.message
     def IDJ(self):
         """ Encodeur pour la trame Id de joueur
         """
-        self.format = 'si'
+        self.format = 'i'
 
-        data = struct.pack(self.format, bytes(self.format, 'utf-8'), self.valeur)
+        data = struct.pack(self.format, self.valeur)
 
         trame = bytes(self.trame, 'utf-8')
         self.message = trame + data
