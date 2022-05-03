@@ -39,3 +39,9 @@ pygame.mouse :
 --CHARGER LES IMAGES DE CURSEURS, CURSEURS STANDARDS INCLUS--
 
 pygame.cursors
+
+- pygame.cursors.commpile() -> permet de créer des données de curseur binaire pour le système.
+
+- pygame.cursors.load_xbm(fichier_du_curseur) -> permet nde récupérer les données d'un curseur dans un fichier XBM. Ces informations peuvent être entrées directement dans la fonction pygame.mouse.set_cursor().
+
+- pygame.cursors.Cursor() -> 
