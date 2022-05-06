@@ -25,13 +25,12 @@ Une classe `Joueur`:
   + `set_est_mort(self,valeur)`->changer attribut `est_mort` par True or False
   + `set_nombre_de_morts(self,valeur)`-> changer attribut `nombre_de_morts` par un entier
 
-Une classe course:
+Une classe Course:
 
 - Attributs:
   +`salles`->liste de plusieurs instances de la classe salle
-  +
   
-Une classe salle:
+Une classe Salle:
 
 -Attributs:
   +`liste_obstacles`-> liste d'obstacles
