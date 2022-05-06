@@ -4,13 +4,13 @@ Un timer déclenche la vérification de colision
 Faire un micro ordonanceur.
 Donnner une forte priorité (au sens systéme du terme) au process
 # Structures de données
-On a une classe `Obstacle`.
+### classe `Obstacle`.
 
-Methodes:
+- Methodes:
   - `colision(x, y)` prend les coordonées d'un joueur et vérifie si un joueur est en colision avec un objet.
   - `affichage()` affiche un objet.
 
-Une classe `Joueur`:
+### classe `Joueur`:
 
 - Attributs:
   + `est_mort`->True ou False
@@ -25,28 +25,19 @@ Une classe `Joueur`:
   + `set_est_mort(self,valeur)`->changer attribut `est_mort` par True or False
   + `set_nombre_de_morts(self,valeur)`-> changer attribut `nombre_de_morts` par un entier
 
-Une classe Course:
+### classe `Course`:
 
 - Attributs:
-  +`salles`->liste de plusieurs instances de la classe salle
+  + `salles`->liste de plusieurs instances de la classe salle
   
-Une classe Salle:
+### classe `Salle`:
 
--Attributs:
-  +`liste_obstacles`-> liste d'obstacles
+- Attributs:
+  + `liste_obstacles`-> liste d'obstacles
   
   
--Méthodes:
-  +`__init__(self,fichier)`->prend commme argument le "path" du fichier qui permet de créer la salle
-
-
-# Micro Ordonanceur
-File d'appels de fonctions
-## Thread :
- - Le timeur (el ordonanceur):
- - Affichage des obstables
- - Verification de colision
- - Envois de données au server
+- Méthodes:
+  + `__init__(self,fichier)`->prend commme argument le "path" du fichier qui permet de créer la salle
 
 ## NOUVEAU
 
