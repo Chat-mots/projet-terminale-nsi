@@ -77,8 +77,11 @@ def create():
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
 </head>
+    <body>
+    <a href="http://127.0.0.1:5000"> <button>retour menu</button> </a><br>
     Votre compte a été créé ! Votre id est :''' + str(msq.getlastcreatedid()) + ''', notez-le bien il est important.<br>
-    Votre pseudo est :''' + msq.getpseudo(msq.getlastcreatedid())
+    Votre pseudo est :''' + msq.getpseudo(msq.getlastcreatedid()) + '''
+    </body>'''
 
 
 @app.route("/changepseudo", methods=['POST', 'GET'])
