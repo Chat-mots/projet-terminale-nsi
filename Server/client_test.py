@@ -1,19 +1,19 @@
-from email import message
-from http import server
 import socket
 
-host = '192.168.43.235'
+host = '10.42.0.1'
 port = 4005
 
 socket_client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 socket_client.bind((host, port))
 
-serv = ('192.168.43.242',4000)
+serv = ('10.42.0.34', 4000)
 msg = "Hello"
-while message != 'q':
-    socket_client.sendto(msg.encode('utf-8'), serv)
-    data, addr = socket_client.recvfrom(1024)
-    data = data.decode('utf-8')
+socket_client.connect(serv)
+while msg != 'q':
+    socket_client.send(msg.encode('utf-8'))
+    data = socket_client.recv(1024)
+    # data = data.decode('utf-8')
     print("Received from server : ", data)
     msg = input("->")
+    print(msg)
 socket_client.close()

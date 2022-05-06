@@ -1,0 +1,47 @@
+lien: https://www.pygame.org/docs/tut/PygameIntro.html
+
+--AFIN DE CONTRÔLER LE TEMPS--
+
+pygame.time  :
+
+
+- pygame.time.get_ticks() -> donne le temps en millisecondes depuis que pygame.init a été appelé
+
+- pygame.time.wait(millisecondes) -> met en pause le programme pdt un certains temps en millisecondes (met en veille le processus afin de partager le processeur avec d'autres programmes)
+
+- pygame.time.delay(millisecondes) -> idem que .wait() mais n'endaure pas le processus donc garde le processeur mais est plus précis que .wait()
+
+- pygame.time.Clock.tick() -> compte le nombre de millisecondes qui se sont écoulées depuis son dernier appel
+
+
+--CONTRÔLE DE LA SOURIS DE L'UTILISATEUR--
+
+pygame.mouse :
+
+
+- pygame.mouse.get_pressed(num_buttons) -> num_buttons correspond au nombre de boutons de la sourie que l'on vérifie. Renvoie une liste de booléens qui représentent l'état de tous les boutons de la souris (True=pressé).
+
+- pygame.mouse.get_pos() -> retourne l'abxisse(x) et l'odonnée(y) de la souris lors de l'appel de la fonction. La position renvoyée est la position par rapport au coin supérieur gauche de l'écran.
+
+- pygame.mouse.get_rel() -> retourne la quantitié de mouvement en abxisse et en ordonnée de la souris depuis le dernier appel de la fonction
+
+- pygame.mouse.set_pos([x,y]) -> place la souris aux coordonnées de la liste donnée en arguments [abxisse, ordonnée]
+
+- pygame.mouse.set_visile(booleen) -> si l'argument est "TRUE", la souris sera visible. Si l'arguement est "False" elle sera invisible. Lorsqu'elle réaparaît, elle retourne à la dernière position avant de disparaître
+
+- pygame.mouse.get_visible() -> renvoie un booléen qui indique si la souris est visible ou non(True = visible, False = invisible)
+
+- pygame.mouse.set_cursor() -> Change le curseur de la souris en quelque chose de nouveau. Renvoie rien
+
+- pygame.mouse.get_cursor() -> Récupère les informations du curseur équivalent aux informations entrées en arguments dans pygame.mouse.set_cursor().
+
+
+--CHARGER LES IMAGES DE CURSEURS, CURSEURS STANDARDS INCLUS--
+
+pygame.cursors
+
+- pygame.cursors.commpile() -> permet de créer des données de curseur binaire pour le système.
+
+- pygame.cursors.load_xbm(fichier_du_curseur) -> permet nde récupérer les données d'un curseur dans un fichier XBM. Ces informations peuvent être entrées directement dans la fonction pygame.mouse.set_cursor().
+
+- pygame.cursors.Cursor() -> 
