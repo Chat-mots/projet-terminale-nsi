@@ -1,9 +1,5 @@
 import sys
 import struct
-import random
-import ctypes
-
-from matplotlib.pyplot import table
 
 
 class Encodeur:
@@ -32,19 +28,29 @@ class Encodeur:
         self.format = None
         self.message_multicast = True
 
-    def encode(self, trame, valeur):
+    def encode(self, trame, valeur, multicast):
+        """
+        Fonction encode
+
+        Encodes un message selon la trame ou si celui est à destination du multicasy
+
+        :param str trame: La trame du message
+        :param X valeur: La valeur que l'on veut envoyer
+        :param bool multicast: Si le message doit être envoyé en multicast ou non
+        :return None:
+        """
         self.valeur = valeur
         self.trame = trame
-        self.message_multicast = True
+        self.message_multicast = multicast
 
         if self.trame == 'IDJ':
-            self.IDJ()
-        if self.message_multicast == True:
-
+            self.idj()
+        if self.message_multicast is True:
             return bytes("MC", 'utf-8') + self.message
         else:
-            return bytes("MV", 'utf-8') + self.message
-    def IDJ(self):
+            return bytes("MP", 'utf-8') + self.message
+
+    def idj(self):
         """ Encodeur pour la trame Id de joueur
         """
         self.format = 'i'
@@ -63,4 +69,4 @@ if __name__ == "__main__":
     print(sys.getsizeof(nombre_avec_struct))
     # tableau_direct = struct.pack('%si' %len(tableau), *tableau)
     e = Encodeur()
-    print(e.encode('IDJ', 5))
+    print(e.encode('IDJ', 5, True))

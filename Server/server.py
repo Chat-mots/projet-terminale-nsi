@@ -1,4 +1,6 @@
 import socket
+from _thread import *
+import threading
 
 class Server:
     '''
@@ -6,8 +8,9 @@ class Server:
 
     Attributs :
     ---------------
-    str:ip : L'IP du serveur. Elle doit être fixe
+    str:host : L'IP du serveur. Elle doit être fixe
     int:port : Le port du serveur
+    socket:socket_server : Une instance de la classe socket, permttant au serveur de se connecter au réseau
 
     Méthodes :
     ---------------
@@ -24,9 +27,10 @@ class Server:
         '''
 
         self.port = port
-        self.ip = self.get_host_ip()
+        self.host = self.get_host_ip()
+        self.socket_server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-    def get_host_ip(self) -> str:
+    def get_host_ip(self):
         '''
         Fonction get_host_ip
 
@@ -47,7 +51,30 @@ class Server:
             s.close()
         return IP
 
+    def start_server(self):
+        '''
+        Fonction start_server
+
+        Démarres le serveur, qui attendra des connexions qu'il mettra en thread
+
+        :return None:
+        '''
+        self.socket_server.bind((self.host, self.port))
+        print("Server started")
+        print("Connecté à l'adresse : "+self.host+" sur le port "+str(self.port))
+
+        self.socket_server.listen(8)
+        socket_client, address = self.socket_server.accept()
+
+        while True:
+            message = socket_client.recv(3)
+            print(message.decode('utf-8'))
+
+    def hub(self, message):
+        pass
+
+
+
 if __name__ == "__main__":
     server = Server(4500)
-    server.get_host_ip()
-    print(server.ip)
+    server.start_server()
