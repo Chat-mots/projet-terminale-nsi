@@ -19,7 +19,13 @@ def hello():
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     </head>
     <body>
+    <h1>JEU NSI <br>-<br> The Sophistus GAME <br>(nom provisoire)</h1>
     <form action="/query" method="GET">
+    <p id="presentation">site web compagnon du jeu du projet nsi de <b>Noah et Ethan Brehin, Victor Jean, Léandre
+    Meunier et Pier Boennec.</b><br> le jeu est téléchargeable
+    <a href=https://github.com/Chat-mots/projet-terminale-nsi>
+    <b>sur notre github.</b></a>
+    </p>
 
   <div class="form-group">
     <label>J'ai un compte : </label>
@@ -72,7 +78,7 @@ def create():
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
 </head>
     Votre compte a été créé ! Votre id est :''' + str(msq.getlastcreatedid()) + ''', notez-le bien il est important.<br>
-    Votre pseudo est :''' + str(msq.getlastcreatedid())
+    Votre pseudo est :''' + msq.getpseudo(msq.getlastcreatedid())
 
 
 @app.route("/changepseudo", methods=['POST', 'GET'])
