@@ -1,0 +1,10 @@
+h1 {
+    text-align: center;
+    color: red;
+    font-family: "Roboto";
+}
+
+body {
+    font-family: "Roboto";
+    font-weight: 300
+}

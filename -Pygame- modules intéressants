@@ -5,13 +5,18 @@ lien: https://www.pygame.org/docs/tut/PygameIntro.html
 pygame.time  :
 
 
-- pygame.time.get_ticks() -> donne le temps en millisecondes depuis que pygame.init a été appelé
+- pygame.time.get_ticks() -> donne le temps en millisecondes depuis que pygame.init a été 
+  appelé
 
-- pygame.time.wait(millisecondes) -> met en pause le programme pdt un certains temps en millisecondes (met en veille le processus afin de partager le processeur avec d'autres programmes)
+- pygame.time.wait(millisecondes) -> met en pause le programme pdt un certains temps en 
+  millisecondes (met en veille le processus afin de partager le processeur avec d'autres
+  programmes)
 
-- pygame.time.delay(millisecondes) -> idem que .wait() mais n'endaure pas le processus donc garde le processeur mais est plus précis que .wait()
+- pygame.time.delay(millisecondes) -> idem que .wait() mais n'endaure pas le processus 
+  donc garde le processeur mais est plus précis que .wait()
 
-- pygame.time.Clock.tick() -> compte le nombre de millisecondes qui se sont écoulées depuis son dernier appel
+- pygame.time.Clock.tick() -> compte le nombre de millisecondes qui se sont écoulées 
+  depuis son dernier appel
 
 
 --CONTRÔLE DE LA SOURIS DE L'UTILISATEUR--
@@ -19,23 +24,75 @@ pygame.time  :
 pygame.mouse :
 
 
-- pygame.mouse.get_pressed(num_buttons) -> num_buttons correspond au nombre de boutons de la sourie que l'on vérifie. Renvoie une liste de booléens qui représentent l'état de tous les boutons de la souris (True=pressé).
+- pygame.mouse.get_pressed(num_buttons) -> num_buttons correspond au nombre de boutons de 
+  la sourie que l'on vérifie. Renvoie une liste de booléens qui représentent l'état de 
+  tous les boutons de la souris (True=pressé).
 
-- pygame.mouse.get_pos() -> retourne l'abxisse(x) et l'odonnée(y) de la souris lors de l'appel de la fonction. La position renvoyée est la position par rapport au coin supérieur gauche de l'écran.
+- pygame.mouse.get_pos() -> retourne l'abxisse(x) et l'odonnée(y) de la souris lors de 
+  l'appel de la fonction. La position renvoyée est la position par rapport au coin 
+  supérieur gauche de l'écran.
 
-- pygame.mouse.get_rel() -> retourne la quantitié de mouvement en abxisse et en ordonnée de la souris depuis le dernier appel de la fonction
+- pygame.mouse.get_rel() -> retourne la quantitié de mouvement en abxisse et en ordonnée 
+  de la souris depuis le dernier appel de la fonction
 
-- pygame.mouse.set_pos([x,y]) -> place la souris aux coordonnées de la liste donnée en arguments [abxisse, ordonnée]
+- pygame.mouse.set_pos([x,y]) -> place la souris aux coordonnées de la liste donnée en 
+  arguments [abxisse, ordonnée]
 
-- pygame.mouse.set_visile(booleen) -> si l'argument est "TRUE", la souris sera visible. Si l'arguement est "False" elle sera invisible. Lorsqu'elle réaparaît, elle retourne à la dernière position avant de disparaître
+- pygame.mouse.set_visile(booleen) -> si l'argument est "TRUE", la souris sera visible. 
+  Si l'arguement est "False" elle sera invisible. Lorsqu'elle réaparaît, elle retourne à 
+  la dernière position avant de disparaître
 
-- pygame.mouse.get_visible() -> renvoie un booléen qui indique si la souris est visible ou non(True = visible, False = invisible)
+- pygame.mouse.get_visible() -> renvoie un booléen qui indique si la souris est visible 
+  ou non(True = visible, False = invisible)
 
-- pygame.mouse.set_cursor() -> Change le curseur de la souris en quelque chose de nouveau. Renvoie rien
+- pygame.mouse.set_cursor() -> Change le curseur de la souris en quelque chose de nouveau.
+  Renvoie rien
 
-- pygame.mouse.get_cursor() -> Récupère les informations du curseur équivalent aux informations entrées en arguments dans pygame.mouse.set_cursor().
+- pygame.mouse.get_cursor() -> Récupère les informations du curseur équivalent aux 
+  informations entrées en arguments dans pygame.mouse.set_cursor().
 
 
 --CHARGER LES IMAGES DE CURSEURS, CURSEURS STANDARDS INCLUS--
 
 pygame.cursors
+
+- pygame.cursors.commpile(strings, black='X', white'.', xor='o') -> permet de créer des 
+  données de curseur binaire pour le système.
+
+- pygame.cursors.load_xbm(fichier_du_curseur) -> permet nde récupérer les données d'un 
+  curseur dans un fichier XBM. Ces informations peuvent être entrées directement dans la 
+  fonction pygame.mouse.set_cursor().
+
+- pygame.cursors.Cursor(size, hotspot, xormasks, andmasks) -> Crée un objet pygame qui 
+  représente un curseur
+
+--TRANSFORMER LES SURFACES--
+
+pygame.transform
+
+- pygame.transform.flip(surrface, flip_x, flip_y) -> permet de tourner une surface
+  horizontalement, verticalement ou les deux. L'argument flip_x et flip_y sont des 
+  booléens qui permettent de pivoter la surface par rapport à chaque axes.
+  La fonction retourne une surface avec les mêmes dimensions.
+
+- pygame.transform.scale(surface, size, dest_surface=None)-> change les dimensions de la 
+  surface. Renvoie la nouvelle surface
+  
+- pygame.transform.rotate(surface, angle)-> Fait une rotation à l'image. 'angle' est en 
+  degrées et peut être n'importe quel float(si négatif, rotate dans le sens inverse des 
+  aiguilles d'une montre) Retourne la nouvelle surface.
+  
+- pygame.transform.rotozom(surface, angle, scale)-> combinaison de transform.scale et 
+  transform.rotate. Renvoie la nouvelle surface
+  
+- pygame.transform.scale2x(surface, dest_surface=None)-> Renvoie la surface données avec 
+  sa taille doublée
+  
+- pygame.transform.chop(surface, rect)-> Extrait une portion de l'image. Renvoie la 
+  nouvelle image.
+  
+- pygame.transform.laplacian(surface, dest_surface=None) -> Trouve les bordures d'une 
+  surface.
+  
+- pygame.transform.average_color(surface, rect=None) -> Renvoie la couleur moyenne d'une 
+  région ou d'une surface
