@@ -6,5 +6,10 @@ h1 {
 
 body {
     font-family: "Roboto";
-    font-weight: 300
+    font-weight: 300;
+    background-image: url('https://www.startpage.com/av/proxy-image?piurl=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F452107.jpg&sp=1651822095T93708a13ead0292015ffba666c0275c0ea8131c289ce628e68bac3720b132fa8');
+}
+
+#presentation {
+    text-align: center
 }
