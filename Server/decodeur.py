@@ -1,3 +1,5 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
 from encodeur import Encodeur
 import struct
 import sys

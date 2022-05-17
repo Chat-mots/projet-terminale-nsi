@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
 import sys
 import struct
 
@@ -46,9 +49,9 @@ class Encodeur:
         if self.trame == 'IDJ':
             self.idj()
         if self.message_multicast is True:
-            return bytes("MC", 'utf-8') + self.message
+            return bytes("MC") + self.message
         else:
-            return bytes("MP", 'utf-8') + self.message
+            return bytes("MP") + self.message
 
     def idj(self):
         """ Encodeur pour la trame Id de joueur
@@ -57,7 +60,7 @@ class Encodeur:
 
         data = struct.pack(self.format, self.valeur)
 
-        trame = bytes(self.trame, 'utf-8')
+        trame = self.trame.encode('utf-8')
         self.message = trame + data
 
 

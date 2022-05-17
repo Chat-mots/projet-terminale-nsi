@@ -63,12 +63,14 @@ class Server:
         print("Server started")
         print("Connecté à l'adresse : "+self.host+" sur le port "+str(self.port))
 
-        self.socket_server.listen(8)
+        self.socket_server.listen(5)
         socket_client, address = self.socket_server.accept()
 
         while True:
-            message = socket_client.recv(3)
-            print(message.decode('utf-8'))
+            print("connecté ! ", address)
+            message = socket_client.recv(1024)
+            print(message is None)
+            print(message)
 
     def hub(self, message):
         pass

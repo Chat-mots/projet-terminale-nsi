@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
 from decodeur import Decodeur
 from encodeur import Encodeur
 import socket
@@ -22,7 +25,7 @@ class Client:
     receive : Se prépare à recevoir un message du serveur
     """
 
-    def __int__(self, port):
+    def __init__(self, port):
         """
         Methode init
 
@@ -36,7 +39,7 @@ class Client:
         self.port = port
         self.encodeur = Encodeur()
         self.decodeur = Decodeur()
-        self.client_multicast = socket.socket
+        self.client_multicast = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
     def get_host_ip(self):
         """
@@ -59,16 +62,22 @@ class Client:
             s.close()
         return IP
 
-    def start_client(self):
+    def start_client(self, server_host, server_port):
         '''
         Fonction start_client
 
         Démarres les deux sockets du client
 
+        :param str server_host: l'ip du serveur
+        :param int server_port: Le port du serveur
         :return None:
         '''
+
         self.client_multicast.bind((self.host, self.port))
-        
+        print("bind")
+        self.client_multicast.connect((server_host, server_port))
+        print("Connecté au serveur")
+
 
     def send(self, trame, valeur):
         """
@@ -80,3 +89,14 @@ class Client:
         :param X valeur: La valeur qu'on veut envoyé
         :return None:
         """
+
+        message = self.encodeur.encode(trame, valeur, True)
+        print("Envoi de : ", message)
+        self.client_multicast.send(message)
+        print("bien envoyé")
+
+if __name__ == "__main__":
+    client = Client(int(input("port: ")))
+    client.start_client('192.168.43.235', 4500)
+    client.send('IDJ', 5)
+
