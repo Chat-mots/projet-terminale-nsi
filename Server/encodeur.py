@@ -49,9 +49,9 @@ class Encodeur:
         if self.trame == 'IDJ':
             self.idj()
         if self.message_multicast is True:
-            return bytes("MC") + self.message
+            return bytes("MC", 'utf-8') + self.message
         else:
-            return bytes("MP") + self.message
+            return bytes("MP", 'utf-8') + self.message
 
     def idj(self):
         """ Encodeur pour la trame Id de joueur

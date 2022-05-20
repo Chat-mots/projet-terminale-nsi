@@ -4,6 +4,8 @@
 from decodeur import Decodeur
 from encodeur import Encodeur
 import socket
+import struct
+import sys
 
 
 class Client:
@@ -91,6 +93,7 @@ class Client:
         """
 
         message = self.encodeur.encode(trame, valeur, True)
+        print(type(message))
         print("Envoi de : ", message)
         self.client_multicast.send(message)
         print("bien envoyé")
